@@ -25,7 +25,10 @@ class Quaternion:
     def __matmul__(self,q):
         a0, a1, a2, a3 = self
         b0, b1, b2, b3 = q
-        return Quaternion((a0*b0-a1*b1-a2*b2-a3*b3),(a0*b1+a1*b0+a2*b3-a3*b2),(a0*b2-a1*b3+a2*b0+a3*b1),(a0*b3+a1*b2-a2*b1+a3*b0))
+        return Quaternion((a0*b0-a1*b1-a2*b2-a3*b3),
+                            (a0*b1+a1*b0+a2*b3-a3*b2),
+                            (a0*b2-a1*b3+a2*b0+a3*b1),
+                            (a0*b3+a1*b2-a2*b1+a3*b0))
     def inv(self):
         c = 1/(self.w**2+self.i**2+self.j**2+self.k**2)
         return Quaternion(self.w,-self.i,-self.j,-self.k)*c
